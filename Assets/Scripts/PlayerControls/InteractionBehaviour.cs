@@ -26,13 +26,13 @@ public class InteractionBehaviour : MonoBehaviour
     void Update()
     {   // For one click interactions
 
-        if (Physics.Raycast(cam.position, cam.forward, out hit, interactionDistance, interactionLayer))
+      /*  if (Physics.Raycast(cam.position, cam.forward, out hit, interactionDistance, interactionLayer))
         {
             hitObject = hit.collider.gameObject;
-            if (hitObject.CompareTag("Shadow") )
+            if (hitObject.CompareTag("Shadow"))
             {
-                ShadowObjControl= hitObject.GetComponent<ShadowObjControl>();
-                
+                ShadowObjControl = hitObject.GetComponent<ShadowObjControl>();
+
 
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -40,6 +40,14 @@ public class InteractionBehaviour : MonoBehaviour
                     ShadowObjControl.MoveObject();
 
                     ;
+
+                }
+            }
+            else if (hitObject.CompareTag("Rgb"))
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    hitObject.GetComponent<ChannelSwitchButtons>().ButtonPush();
 
                 }
             }
@@ -64,7 +72,20 @@ public class InteractionBehaviour : MonoBehaviour
            //MelodyPuzzleManage.ResetLook();
             hitObject = null;
             MelodyPuzzleManage = null;
+        }*/
+
+        if (Physics.Raycast(cam.position, cam.forward, out hit, interactionDistance, interactionLayer))
+        {
+
+
+            hitObject = hit.collider.gameObject;
+            if (Input.GetMouseButtonDown(0))
+            {
+                hitObject.GetComponent<IInteractable>().Interact();
+                
+            }
+            
+
         }
-        
     }
 }

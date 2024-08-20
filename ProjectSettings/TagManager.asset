@@ -12,6 +12,7 @@ TagManager:
   - MazeDeath
   - Shadow
   - Melody
+  - Rgb
   layers:
   - Default
   - TransparentFX
@@ -25,10 +26,10 @@ TagManager:
   - Death
   - Interaction
   - sdsd
-  - 
-  - 
-  - 
-  - 
+  - Red
+  - Blue
+  - Green
+  - White
   - 
   - 
   - 

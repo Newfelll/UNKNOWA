@@ -22,15 +22,16 @@ public class SFXSoundManager : MonoBehaviour
 
     public AudioClip correctSFX;
     public AudioClip buttonSFX;
+    public AudioClip swithcNoise;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-  
 
-    
+
+
 
 
 
@@ -41,6 +42,11 @@ public class SFXSoundManager : MonoBehaviour
 
     public void PlayButtonSFX()
     {
-          audioSource.PlayOneShot(buttonSFX);
+        audioSource.PlayOneShot(buttonSFX);
+    }
+
+    public void PlaySwitchNoise()
+    {
+        audioSource.PlayOneShot(swithcNoise);
     }
 }

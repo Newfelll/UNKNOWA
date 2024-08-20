@@ -41,14 +41,7 @@ public class Visible : MonoBehaviour
             if (onScreen != isObjectInView)
             {
                 isObjectInView = onScreen;
-                if (isObjectInView)
-                {
-                    Debug.Log("Object is in camera view.");
-                }
-                else
-                {
-                    Debug.Log("Object is not in camera view.");
-                }
+               
             }
         
     }

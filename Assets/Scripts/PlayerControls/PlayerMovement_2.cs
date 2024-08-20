@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using System.Runtime.CompilerServices;
-using Unity.Burst.CompilerServices;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
+
 
 public class PlayerMovement_2 : MonoBehaviour
 {
@@ -93,7 +90,7 @@ public class PlayerMovement_2 : MonoBehaviour
 
 
 
-
+    WaitForSeconds footStepDelay;
 
     RaycastHit slopeHit;
     private bool OnSlope()
@@ -103,18 +100,23 @@ public class PlayerMovement_2 : MonoBehaviour
             if (slopeHit.normal != Vector3.up)
             {
                 return true;
+  
+                
             }
             else { return false; }
         }
         return false;
     }
 
+  
+
+
     // Use this for initialization
     void Start()
     {
         scene = SceneManager.GetActiveScene();
 
-       
+       footStepDelay = new WaitForSeconds(footStepInterval);
 
         rb = this.GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -142,31 +144,22 @@ public class PlayerMovement_2 : MonoBehaviour
 
 
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        
 
 
 
 
 
 
-        if (isGrounded)
-        {
-
-            canDoubleJump = 1;
-        }
 
 
         if (isGrounded && Input.GetKeyDown(jumpKey))
         {
             jump = true;
-
+            
 
         }
-        else if (Input.GetKeyDown(jumpKey) && !isGrounded && canDoubleJump == 1 &&doubleJumpToggle)
-        {
-            jump = true;
-            canDoubleJump = 0;
-        }
+     
 
 
         slopeMoveDir = Vector3.ProjectOnPlane(moveDir, slopeHit.normal);
@@ -182,7 +175,7 @@ public class PlayerMovement_2 : MonoBehaviour
             isWalking = false;
             StartCoroutine(PlayFootsteps());
 
-            audioSourceFootsteps.pitch = Random.Range(1f, 1.5f);
+           
             audioSourceFootsteps.loop = true;
         }
        
@@ -192,6 +185,8 @@ public class PlayerMovement_2 : MonoBehaviour
     }
     void FixedUpdate()
     {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
         MovePlayer();
 
         if (jump)
@@ -200,7 +195,9 @@ public class PlayerMovement_2 : MonoBehaviour
             Jump();
         }
 
-        velocityBeforePhysicsUpdate = rb.velocity;
+    //    velocityBeforePhysicsUpdate = rb.velocity;
+
+
     }
 
     
@@ -279,18 +276,18 @@ public class PlayerMovement_2 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Jumppad"))
-        {   
-            audioSourceMixed.PlayOneShot(jumpPadSound);
-            rb.velocity = Vector3.zero;
-            rb.AddForce(transform.up * jumpPadMultiplier, ForceMode.Impulse);
-
-        }
+       // if (collision.gameObject.CompareTag("Jumppad"))
+       // {   
+       //     audioSourceMixed.PlayOneShot(jumpPadSound);
+       //     rb.velocity = Vector3.zero;
+       //     rb.AddForce(transform.up * jumpPadMultiplier, ForceMode.Impulse);
+       //
+       // }
         
-        if ( velocityBeforePhysicsUpdate.y<landingSoundThreshold && collision.gameObject.CompareTag("Ground"))
-        {   
-            audioSourceMixed.PlayOneShot(landingSound);
-        }
+       // if ( velocityBeforePhysicsUpdate.y<landingSoundThreshold && collision.gameObject.CompareTag("Ground"))
+       // {   
+       //     audioSourceMixed.PlayOneShot(landingSound);
+       // }
     }
   
 
@@ -313,7 +310,7 @@ public class PlayerMovement_2 : MonoBehaviour
         }
 
         if (other.gameObject.CompareTag("MazeDeath"))
-        {   Debug.Log("triggered");
+        {   
             StartCoroutine(MazeDeath());
 
 
@@ -353,7 +350,7 @@ public class PlayerMovement_2 : MonoBehaviour
     {   
         audioSourceFootsteps.pitch = Random.Range(1f, 1.5f);
         audioSourceFootsteps.PlayOneShot(audioSourceFootsteps.clip);
-        yield return new WaitForSeconds(footStepInterval);
+        yield return footStepDelay;
         isWalking = true;
     }
 
@@ -361,12 +358,12 @@ public class PlayerMovement_2 : MonoBehaviour
     IEnumerator MazeDeath()
     {
         capCol.enabled = false;
-        Debug.Log("falling");
+       
         yield return new WaitForSeconds(1.5f);
         capCol.enabled = true;
         transform.position = mazeSpawnPoint.position;
         rb.velocity = Vector3.zero;
-        Debug.Log("spawned");
+        
 
 
     }
