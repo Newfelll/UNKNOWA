@@ -6,6 +6,7 @@ public class DoorWayBehaviour : MonoBehaviour
 {
     
     private int index = 0;
+    public int keyCount;
   
 
 
@@ -16,7 +17,7 @@ public class DoorWayBehaviour : MonoBehaviour
 
         index++;
 
-        if (index ==4 )
+        if (index ==keyCount )
         {   
             transform.GetChild (0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(false);

@@ -1,32 +1,72 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Visible : MonoBehaviour
 {
     public Camera mainCamera;
     public Transform player;
+    public GameObject indicator;
+    public enum ScaleAxis { XYZ,X, Y, Z };
+    public ScaleAxis scaleAxis;
 
+
+    
     private Transform thisObj;
     private bool isObjectInView;
 
-    [SerializeField]private float scaleMultiplier=1;
 
+    
+    [SerializeField] private float growScaleMultiplier = 1;
+    [SerializeField] private float growSpeed = 1f;
+    [SerializeField] private float shrinkScaleMultiplier = 0.1f;
+
+    [SerializeField] private bool isGrowing;
+    [SerializeField] private float maxScaleMultiplier = 1.5f;
 
     Vector3 baseScale;
+    Vector3 maxScale;
+    Vector3 screenPoint;
+    Vector3 screenUiPoint;
+    public float magnitude;
+    
+
+
+
+
     void Start()
-    {
+    {   mainCamera = Camera.main;
         thisObj = transform;
         baseScale = thisObj.localScale;
+        maxScale = baseScale * maxScaleMultiplier;
+
+        
+
+        player= GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
-    {
+    {   
+        magnitude= thisObj.localScale.magnitude;
+        maxScale = baseScale * maxScaleMultiplier;
         CheckVisibility();
 
 
         if (isObjectInView)
-        {
-            thisObj.localScale = scaleMultiplier * baseScale/Vector3.Distance(player.position, thisObj.position);
+        {   screenUiPoint = mainCamera.WorldToScreenPoint(thisObj.position);
+
+            indicator.SetActive(true);
+            indicator.transform.position = screenUiPoint;
+            if (isGrowing)
+            {
+                Grow();
+
+            }
+            else
+            {
+                Shrink();
+            }
         }
+        else indicator.SetActive(false);
     }
 
 
@@ -34,21 +74,85 @@ public class Visible : MonoBehaviour
     {
        
         
-            Vector3 screenPoint = mainCamera.WorldToViewportPoint(thisObj.position);
+           Vector3 screenPoint = mainCamera.WorldToViewportPoint(thisObj.position);
+           
 
-            bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+            isObjectInView = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
 
-            if (onScreen != isObjectInView)
-            {
-                isObjectInView = onScreen;
                
-            }
+           
+    }
+
+
+    private void Grow()
+    {
+        float distance = Vector3.Distance(player.position, thisObj.position);
+        Vector3 scale = growScaleMultiplier * baseScale / distance;
+        if (scale.magnitude > maxScale.magnitude)
+        {
+            scale = Vector3.ClampMagnitude(scale, maxScale.magnitude);
+        }
+
+
+        switch (scaleAxis)
+        {
+            case ScaleAxis.XYZ:
+                thisObj.localScale = Vector3.MoveTowards(thisObj.localScale, scale, growSpeed);
+                break;
+
+            case ScaleAxis.X:
+                scale = new Vector3(scale.x, thisObj.localScale.y, thisObj.localScale.z);
+                thisObj.localScale = Vector3.MoveTowards(thisObj.localScale, scale, growSpeed);
+
+                break;
+            case ScaleAxis.Y:
+                scale = new Vector3(thisObj.localScale.x, scale.y, thisObj.localScale.z);
+                thisObj.localScale = Vector3.MoveTowards(thisObj.localScale, scale, growSpeed);
+                break;
+            case ScaleAxis.Z:
+                scale = new Vector3(thisObj.localScale.x, thisObj.localScale.y, scale.z);
+                thisObj.localScale = Vector3.MoveTowards(thisObj.localScale, scale, growSpeed);
+                break;
+
+        }
+    }
+
+    private void Shrink()
+    {
+        float distance = Vector3.Distance(player.position, thisObj.position);
+        Vector3 scale =  baseScale * distance/ shrinkScaleMultiplier;
+        if (scale.magnitude>maxScale.magnitude)
+        {
+            scale = Vector3.ClampMagnitude(scale, maxScale.magnitude);
+        }
+
+
+        switch (scaleAxis)
+        {
+            case ScaleAxis.XYZ:
+                thisObj.localScale = Vector3.MoveTowards(thisObj.localScale, scale, growSpeed);
+                break;
+
+            case ScaleAxis.X:
+                scale= new Vector3(scale.x, thisObj.localScale.y, thisObj.localScale.z);
+                thisObj.localScale = Vector3.MoveTowards(thisObj.localScale, scale, growSpeed);
+
+                break;
+            case ScaleAxis.Y:
+                scale = new Vector3(thisObj.localScale.x, scale.y, thisObj.localScale.z);
+                thisObj.localScale = Vector3.MoveTowards(thisObj.localScale, scale, growSpeed);
+                break;
+            case ScaleAxis.Z:
+                scale= new Vector3(thisObj.localScale.x, thisObj.localScale.y, scale.z);
+                thisObj.localScale = Vector3.MoveTowards(thisObj.localScale, scale, growSpeed);
+                break;
+
+        }
+        
+        
         
     }
 
 
-    private void Scaling()
-    {
-
-    }
+   
 }

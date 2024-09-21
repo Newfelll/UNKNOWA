@@ -10,7 +10,7 @@ public class LensSwitch : MonoBehaviour
     private Camera cam;
 
     public List<LayerMask> colChannels = new List<LayerMask>();
-    void Start()
+    void Awake()
     {
         camera = transform.GetChild(0).gameObject;
         cam = camera.GetComponent<Camera>();

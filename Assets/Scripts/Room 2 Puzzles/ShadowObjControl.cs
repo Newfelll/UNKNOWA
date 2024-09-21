@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Unity.VisualScripting.StickyNote;
 
-public class ShadowObjControl : MonoBehaviour
+public class ShadowObjControl : MonoBehaviour,IInteractable
 {   
     public GameObject shadowObj;
     public List<Transform> points;
@@ -29,7 +29,10 @@ public class ShadowObjControl : MonoBehaviour
     // Update is called once per frame
    
 
-
+   public void Interact()
+    {
+        MoveObject();
+    }
 
     public void MoveObject()
     {   if (!moving&&!GetComponentInParent<PanelValidator>().isSolved)

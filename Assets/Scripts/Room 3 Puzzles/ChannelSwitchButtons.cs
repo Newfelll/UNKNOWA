@@ -5,16 +5,13 @@ using UnityEngine;
 public class ChannelSwitchButtons : MonoBehaviour, IInteractable
 {   
     private Animator anim;
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 
 
     public void Interact()

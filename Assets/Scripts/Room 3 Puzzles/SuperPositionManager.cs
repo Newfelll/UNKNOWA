@@ -10,7 +10,7 @@ public class SuperPositionManager : MonoBehaviour
     List<SuperPosition> vacantPoints = new List<SuperPosition>();
 
 
-    void Start()
+    void Awake()
     { 
         foreach (Transform child in transform)
         {

@@ -6,23 +6,18 @@ using UnityEngine;
 public class LeverBehaviour : MonoBehaviour,IInteractable
 {
     public GameEvent leverPulled;
-    public GameEvent leverReset;
+    
 
-    private AudioSource audioSource;
+    
 
     public bool isPulled = false;
     public float time = 10f;
 
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+    
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
+   
 
 
     public void Interact()
@@ -38,11 +33,10 @@ public class LeverBehaviour : MonoBehaviour,IInteractable
 
 
     IEnumerator ResetLever()
-    {   audioSource.Play();
+    {   
         float timer=0;
          Vector3 initialPos = transform.localEulerAngles;
-        Debug.Log(initialPos);
-        Debug.Log(transform.eulerAngles);
+        
          Vector3 targetPos = new Vector3(initialPos.x, initialPos.y, 180);
         
 
@@ -65,7 +59,7 @@ public class LeverBehaviour : MonoBehaviour,IInteractable
 
 
          
-         while (timer < time)
+     /*    while (timer < time)
          {
 
              transform.localEulerAngles = Vector3.Lerp(targetPos, initialPos, timer / time);
@@ -74,13 +68,13 @@ public class LeverBehaviour : MonoBehaviour,IInteractable
 
              yield return null;
          }
-        transform.localEulerAngles = initialPos;
+        transform.localEulerAngles = initialPos;*/
          
 
         
-        audioSource.Stop();
+        
         isPulled = false;
-        leverReset.TriggerEvent();
+        
 
     }
 

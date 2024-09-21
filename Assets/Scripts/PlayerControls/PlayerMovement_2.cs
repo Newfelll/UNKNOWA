@@ -130,74 +130,78 @@ public class PlayerMovement_2 : MonoBehaviour
     void Update()
     {
 
-        
-
-
-        if (Input.GetKeyDown(KeyCode.R))
+        if (GameManager.Instance.isSceneActive)
         {
 
 
-            SceneManager.LoadScene(scene.name);
 
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+
+
+                SceneManager.LoadScene(scene.name);
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            if (isGrounded && Input.GetKeyDown(jumpKey))
+            {
+                jump = true;
+
+
+            }
+
+
+
+            slopeMoveDir = Vector3.ProjectOnPlane(moveDir, slopeHit.normal);
+
+
+
+            PlayerInput();
+
+            ControlDrag();
+
+            if (isGrounded && isWalking && (horizontalMovement != 0 || verticalMovement != 0))
+            {
+                isWalking = false;
+                StartCoroutine(PlayFootsteps());
+
+
+                audioSourceFootsteps.loop = true;
+            }
 
         }
-
-
-
-        
-
-
-
-
-
-
-
-
-        if (isGrounded && Input.GetKeyDown(jumpKey))
-        {
-            jump = true;
-            
-
-        }
-     
-
-
-        slopeMoveDir = Vector3.ProjectOnPlane(moveDir, slopeHit.normal);
-
-
-
-        PlayerInput();
-
-        ControlDrag();
-
-        if (isGrounded&&isWalking&&(horizontalMovement!=0|| verticalMovement!=0))
-        {
-            isWalking = false;
-            StartCoroutine(PlayFootsteps());
-
-           
-            audioSourceFootsteps.loop = true;
-        }
-       
-        
 
         
     }
     void FixedUpdate()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        MovePlayer();
-
-        if (jump)
+        if (GameManager.Instance.isSceneActive)
         {
-            jump = false;
-            Jump();
+            MovePlayer();
+
+            if (jump)
+            {
+                jump = false;
+                Jump();
+            }
+
+
+
         }
-
-    //    velocityBeforePhysicsUpdate = rb.velocity;
-
-
     }
 
     
@@ -321,6 +325,16 @@ public class PlayerMovement_2 : MonoBehaviour
            
             MusicManager.Instance.PauseMusic();
 
+        }
+
+        if (other.gameObject.tag == "Finish")
+        {
+            GameManager.Instance.isSceneActive = false;
+            rb.velocity = Vector3.zero;
+            
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            FindObjectOfType<LevelLoader>().LoadLevel(sceneIndex + 1);
+            
         }
 
     }

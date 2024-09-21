@@ -126,79 +126,84 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        
 
-
-        if (Input.GetKeyDown(KeyCode.R))
+        if (GameManager.Instance.isSceneActive)
         {
 
+            if (Input.GetKeyDown(KeyCode.R))
+            {
 
-            SceneManager.LoadScene(scene.name);
+
+                SceneManager.LoadScene(scene.name);
+
+
+            }
+
+
+
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+
+
+
+
+
+            if (isGrounded)
+            {
+
+                canDoubleJump = 1;
+            }
+
+
+            if (isGrounded && Input.GetKeyDown(jumpKey))
+            {
+                jump = true;
+
+
+            }
+            else if (Input.GetKeyDown(jumpKey) && !isGrounded && canDoubleJump == 1 && doubleJumpToggle)
+            {
+                jump = true;
+                canDoubleJump = 0;
+            }
+
+
+            slopeMoveDir = Vector3.ProjectOnPlane(moveDir, slopeHit.normal);
+
+
+
+            PlayerInput();
+
+            ControlDrag();
+
+            if (isGrounded && isWalking && (horizontalMovement != 0 || verticalMovement != 0))
+            {
+                isWalking = false;
+                StartCoroutine(PlayFootsteps());
+
+                audioSourceFootsteps.pitch = Random.Range(1f, 1.5f);
+                audioSourceFootsteps.loop = true;
+            }
 
 
         }
-
-
-
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-
-
-
-
-
-        if (isGrounded)
-        {
-
-            canDoubleJump = 1;
-        }
-
-
-        if (isGrounded && Input.GetKeyDown(jumpKey))
-        {
-            jump = true;
-
-
-        }
-        else if (Input.GetKeyDown(jumpKey) && !isGrounded && canDoubleJump == 1 &&doubleJumpToggle)
-        {
-            jump = true;
-            canDoubleJump = 0;
-        }
-
-
-        slopeMoveDir = Vector3.ProjectOnPlane(moveDir, slopeHit.normal);
-
-
-
-        PlayerInput();
-
-        ControlDrag();
-
-        if (isGrounded&&isWalking&&(horizontalMovement!=0|| verticalMovement!=0))
-        {
-            isWalking = false;
-            StartCoroutine(PlayFootsteps());
-
-            audioSourceFootsteps.pitch = Random.Range(1f, 1.5f);
-            audioSourceFootsteps.loop = true;
-        }
-       
-        
-
         
     }
     void FixedUpdate()
-    {
-        MovePlayer();
-
-        if (jump)
+    { if (GameManager.Instance.isSceneActive)
         {
-            jump = false;
-            Jump();
-        }
 
-        velocityBeforePhysicsUpdate = rb.velocity;
+
+            MovePlayer();
+
+            if (jump)
+            {
+                jump = false;
+                Jump();
+            }
+
+            velocityBeforePhysicsUpdate = rb.velocity;
+        }
     }
 
     
@@ -286,7 +291,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
         if ( velocityBeforePhysicsUpdate.y<landingSoundThreshold && collision.gameObject.tag == "Ground")
-        {   Debug.Log(velocityBeforePhysicsUpdate.y);
+        {   
             audioSourceMixed.PlayOneShot(landingSound);
         }
     }
@@ -316,6 +321,16 @@ public class PlayerMovement : MonoBehaviour
            audioSourceMixed.PlayOneShot(pickupSound);  
             
             
+        }
+
+        if (other.gameObject.tag == "Finish")
+        {
+            GameManager.Instance.isSceneActive = false;
+            rb.velocity = Vector3.zero;
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            FindObjectOfType<LevelLoader>().LoadLevel(sceneIndex+1);
+            
+
         }
 
     }

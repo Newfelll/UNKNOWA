@@ -31,7 +31,7 @@ public class SuperPosition : MonoBehaviour
     RaycastHit hit;
 
     Vector3 directionToTarget;
-    void Start()
+    void Awake()
     {   
         SuperPositionManager = GetComponentInParent<SuperPositionManager>();
         mainCamera = Camera.main;

@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class InteractionBehaviour : MonoBehaviour
 {
     public Transform cam;
+    public Image reticle;
+    public Sprite interactSprite;
+    public Sprite defaultSprite;
 
 
 
@@ -19,64 +23,16 @@ public class InteractionBehaviour : MonoBehaviour
     private ShadowObjControl ShadowObjControl;
     void Start()
     {
-        
+        reticle.sprite = defaultSprite;
     }
 
     // Update is called once per frame
     void Update()
-    {   // For one click interactions
-
-      /*  if (Physics.Raycast(cam.position, cam.forward, out hit, interactionDistance, interactionLayer))
-        {
-            hitObject = hit.collider.gameObject;
-            if (hitObject.CompareTag("Shadow"))
-            {
-                ShadowObjControl = hitObject.GetComponent<ShadowObjControl>();
-
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                    Debug.Log("Pressed");
-                    ShadowObjControl.MoveObject();
-
-                    ;
-
-                }
-            }
-            else if (hitObject.CompareTag("Rgb"))
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    hitObject.GetComponent<ChannelSwitchButtons>().ButtonPush();
-
-                }
-            }
-            else
-            {
-                MelodyPuzzleManage = hitObject.GetComponentInParent<MelodyPuzzleManage>();
-                // MelodyPuzzleManage.HiglightSelection();
-
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                    Debug.Log("Pressed");
-                    MelodyPuzzleManage.PressNote(hitObject);
-
-                    // MelodyPuzzleManage.test(hitObject);
-
-                }
-            }
-
-        }else if (hitObject != null)
-        {
-           //MelodyPuzzleManage.ResetLook();
-            hitObject = null;
-            MelodyPuzzleManage = null;
-        }*/
+    {   
 
         if (Physics.Raycast(cam.position, cam.forward, out hit, interactionDistance, interactionLayer))
         {
-
+            reticle.sprite = interactSprite;
 
             hitObject = hit.collider.gameObject;
             if (Input.GetMouseButtonDown(0))
@@ -87,5 +43,6 @@ public class InteractionBehaviour : MonoBehaviour
             
 
         }
+        else reticle.sprite = defaultSprite;
     }
 }

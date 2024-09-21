@@ -9,16 +9,9 @@ public class MazeBehaviour : MonoBehaviour
     public Light light;
 
     [SerializeField] private bool isPlayerInside = false;
-    [SerializeField] private int delay;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    [SerializeField] private float delay;
+    
+   
 
 
 

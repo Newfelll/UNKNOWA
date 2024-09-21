@@ -182,7 +182,7 @@ public class MelodyPuzzleManage : MonoBehaviour
         if (correctMelody.SequenceEqual(melody))
         {
             isMelodySolved = true;
-            Debug.Log("Melody Correct");
+            
             SFXSoundManager.Instance.PlayCorrectSFX();
 
             Mpb.SetColor("_EmissionColor", Color.green * 3);
@@ -192,7 +192,7 @@ public class MelodyPuzzleManage : MonoBehaviour
         }
         else
         {
-            Debug.Log("Melody Incorrect");
+            
         }
 
 

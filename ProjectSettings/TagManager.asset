@@ -13,6 +13,9 @@ TagManager:
   - Shadow
   - Melody
   - Rgb
+  - MovingPlatform
+  - Light
+  - EchoDoor
   layers:
   - Default
   - TransparentFX
