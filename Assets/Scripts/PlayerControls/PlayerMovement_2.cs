@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static System.TimeZoneInfo;
 
 
 public class PlayerMovement_2 : MonoBehaviour
@@ -25,6 +26,7 @@ public class PlayerMovement_2 : MonoBehaviour
     public AudioClip landingSound;
     public CapsuleCollider capCol;
     public Transform mazeSpawnPoint;
+    public Animator transition;
 
 
 
@@ -88,7 +90,7 @@ public class PlayerMovement_2 : MonoBehaviour
 
 
 
-
+    private Vector3 respawnPosition;
 
     WaitForSeconds footStepDelay;
 
@@ -114,6 +116,8 @@ public class PlayerMovement_2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        respawnPosition = Vector3.zero;
+
         scene = SceneManager.GetActiveScene();
 
        footStepDelay = new WaitForSeconds(footStepInterval);
@@ -140,7 +144,7 @@ public class PlayerMovement_2 : MonoBehaviour
             {
 
 
-                SceneManager.LoadScene(scene.name);
+                StartCoroutine(Respawn());
 
 
             }
@@ -315,7 +319,8 @@ public class PlayerMovement_2 : MonoBehaviour
 
         if (other.gameObject.CompareTag("MazeDeath"))
         {   
-            StartCoroutine(MazeDeath());
+            MeshCollider floor= other.transform.parent.GetChild(0).GetComponent<MeshCollider>();
+            StartCoroutine(MazeDeath(floor));
 
 
         }
@@ -369,17 +374,31 @@ public class PlayerMovement_2 : MonoBehaviour
     }
 
 
-    IEnumerator MazeDeath()
+    IEnumerator MazeDeath(MeshCollider floor)
     {
-        capCol.enabled = false;
-       
+        floor.enabled = false;
+        
         yield return new WaitForSeconds(1.5f);
-        capCol.enabled = true;
-        transform.position = mazeSpawnPoint.position;
+       
+        floor.enabled = true;
         rb.velocity = Vector3.zero;
+        rb.position = mazeSpawnPoint.position;
+        
         
 
 
     }
 
+
+    IEnumerator Respawn()
+    {
+
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(0.5f);
+        transition.SetTrigger("End");
+        rb.velocity = Vector3.zero;
+        rb.position = transform.parent.position;
+        
+        
+    }
 }

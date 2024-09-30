@@ -9,6 +9,18 @@ public class PanelValidator : MonoBehaviour
     public bool isSolved = false;
     public GameEvent onShadowSolved;
 
+    MaterialPropertyBlock mpb;
+    public MaterialPropertyBlock Mpb
+    {
+        get
+        {
+            if (mpb == null)
+            {
+                mpb = new MaterialPropertyBlock();
+            }
+            return mpb;
+        }
+    }
 
     public void CheckAndValidate()
     {
@@ -20,8 +32,8 @@ public class PanelValidator : MonoBehaviour
             }
 
         }
-
-        indicator.material.EnableKeyword("_EMISSION");
+        Mpb.SetColor("_EmissionColor", Color.green * 3);
+        indicator.SetPropertyBlock(Mpb);
         SFXSoundManager.Instance.PlayCorrectSFX();
         isSolved = true;
         onShadowSolved.TriggerEvent();

@@ -3,9 +3,13 @@ using UnityEngine.UI;
 
 public class Visible : MonoBehaviour
 {
+    public static bool isPuzzleActive;
+
     public Camera mainCamera;
     public Transform player;
-    public GameObject indicator;
+    private GameObject indicator;
+    public GameObject growingIndicator;
+    public GameObject shrinkingIndicator;
     public enum ScaleAxis { XYZ,X, Y, Z };
     public ScaleAxis scaleAxis;
 
@@ -22,7 +26,10 @@ public class Visible : MonoBehaviour
 
     [SerializeField] private bool isGrowing;
     [SerializeField] private float maxScaleMultiplier = 1.5f;
+    [SerializeField] private float uiDistance = 10f;
 
+
+    public Vector3 puzzleSolvedScale;
     Vector3 baseScale;
     Vector3 maxScale;
     Vector3 screenPoint;
@@ -39,34 +46,48 @@ public class Visible : MonoBehaviour
         baseScale = thisObj.localScale;
         maxScale = baseScale * maxScaleMultiplier;
 
-        
+        if (isGrowing)
+        {
+            indicator= growingIndicator;
+
+        }
+        else indicator= shrinkingIndicator;
 
         player= GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
-    {   
-        magnitude= thisObj.localScale.magnitude;
-        maxScale = baseScale * maxScaleMultiplier;
-        CheckVisibility();
+    {   if (isPuzzleActive)
+        {
+
+            magnitude = thisObj.localScale.magnitude;
+            maxScale = baseScale * maxScaleMultiplier;
+            CheckVisibility();
 
 
-        if (isObjectInView)
-        {   screenUiPoint = mainCamera.WorldToScreenPoint(thisObj.position);
-
-            indicator.SetActive(true);
-            indicator.transform.position = screenUiPoint;
-            if (isGrowing)
+            if (isObjectInView&& Vector3.Distance(player.transform.position,thisObj.position)<uiDistance)
             {
-                Grow();
+                screenUiPoint = mainCamera.WorldToScreenPoint(thisObj.position);
 
+                indicator.SetActive(true);
+                indicator.transform.position = screenUiPoint;
+                if (isGrowing)
+                {
+                    Grow();
+
+                }
+                else
+                {
+                    Shrink();
+                }
             }
-            else
-            {
-                Shrink();
-            }
+            else indicator.SetActive(false);
+
         }
-        else indicator.SetActive(false);
+    else
+        {
+            indicator.SetActive(false);
+        }
     }
 
 

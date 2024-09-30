@@ -15,7 +15,9 @@ public class SettingsData : MonoBehaviour
 
     private void Awake()
     {
-       
+        Application.targetFrameRate = 60;
+        
+
         if (instance!=null)
         {
             Destroy(gameObject);
@@ -32,36 +34,17 @@ public class SettingsData : MonoBehaviour
         if(PlayerPrefs.GetFloat("FirstRun")==0)
         {
             PlayerPrefs.SetFloat("FirstRun", 1);
-            PlayerPrefs.SetFloat("SensitivityX", 0.35f);
-            PlayerPrefs.SetFloat("SensitivityY", 0.35f);
+            PlayerPrefs.SetFloat("SensitivityX", 120f);
+            PlayerPrefs.SetFloat("SensitivityY", 120f);
             PlayerPrefs.SetFloat("MusicVolume", 0.9f);
             PlayerPrefs.SetFloat("SfxVolume", 0.9f);
             PlayerPrefs.SetFloat("MasterVolume", 0.5f);
         }
         PlayerPrefs.SetFloat("FirstRun", 1);
 
-        if (PlayerPrefs.GetFloat("SensitivityX")==0||PlayerPrefs.GetFloat("SensitivityY")==0)
-        {
-            PlayerLook.sensY = 0.5f;
-            PlayerLook.sensX = 0.5f;
-        }
+       
 
-        if (PlayerPrefs.GetFloat("MusicVolume")== 0)
-        {
-            PlayerPrefs.SetFloat("MusicVolume", 0.5f);
-
-        }
-
-        if (PlayerPrefs.GetFloat("SfxVolume")== 0)
-        {
-            PlayerPrefs.SetFloat("SfxVolume", 0.5f);
-
-        }
-        if (PlayerPrefs.GetFloat("MasterVolume")== 0)
-        {
-            PlayerPrefs.SetFloat("MasterVolume", 0.5f);
-
-        }
+      
     }
 
     private void Start()

@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class SuperPosition : MonoBehaviour
-{
+{   public static bool isPuzzleActive = false;
+
     public Camera mainCamera;
 
     public GameObject pointObject;
@@ -72,21 +73,27 @@ public class SuperPosition : MonoBehaviour
 
     private void Update()
     {
-        if (isVacant)
+        if (isPuzzleActive)
         {
-            thisBoxCollider.enabled = false;
-            boxColliders.ForEach(boxCollider => boxCollider.enabled = true);
-        }
-        else
-        {
-            thisBoxCollider.enabled = true;
-            boxColliders.ForEach(boxCollider => boxCollider.enabled = true);
+
+
+            if (isVacant)
+            {
+                thisBoxCollider.enabled = false;
+                boxColliders.ForEach(boxCollider => boxCollider.enabled = true);
+            }
+            else
+            {
+                thisBoxCollider.enabled = true;
+                boxColliders.ForEach(boxCollider => boxCollider.enabled = true);
+            }
         }
     }
     void FixedUpdate()
-    {
-        CheckVisibility();
-
+    {   if (isPuzzleActive)
+        {
+            CheckVisibility();
+        }
         
     }
 

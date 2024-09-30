@@ -18,13 +18,13 @@ public class DoorWayBehaviour : MonoBehaviour
         index++;
 
         if (index ==keyCount )
-        {   
-            transform.GetChild (0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(2).gameObject.SetActive(false);
-            transform.GetChild(3).gameObject.SetActive(false);
+        {  
+            for (int i = 0; i < keyCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
 
-            transform.GetChild(index).gameObject.SetActive(true);
+            transform.GetChild(keyCount).gameObject.SetActive(true);
         }
     }
   

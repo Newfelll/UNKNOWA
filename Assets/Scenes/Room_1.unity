@@ -23,10 +23,10 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientIntensity: 2.64
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: dce25ada87405a64c943cc71f7db0f05, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -157,7 +157,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73740062}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d81dc780c41f8df4fa9b2bada15ec7de, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -38595,7 +38595,7 @@ MonoBehaviour:
   onEventTriggered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 394074008}
         m_TargetAssemblyTypeName: AwaranessSphereExpansion, Assembly-CSharp
         m_MethodName: ExpandSphere
         m_Mode: 1
@@ -38619,8 +38619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184c92aaac5063942857d3ae5f6f762a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusExpansionRate: 10
-  multiplier: 2
+  radiusExpansionRate: 1.2
+  multiplier: 0
   timeToExpand: 1.5
 --- !u!1 &410087039
 GameObject:
@@ -38652,7 +38652,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 3.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -42864,7 +42864,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604777562}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d81dc780c41f8df4fa9b2bada15ec7de, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -44631,6 +44631,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 059642ec4f760ba4e91ad64da1d9c28e, type: 3}
+--- !u!95 &752723479 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8482630471635583026, guid: 059642ec4f760ba4e91ad64da1d9c28e,
+    type: 3}
+  m_PrefabInstance: {fileID: 752723478}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &771602859
 Mesh:
   m_ObjectHideFlags: 0
@@ -45741,6 +45747,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9c6748781fc7d674198a9b9fc673282f,
         type: 2}
+    - target: {fileID: 9126960187776735724, guid: 2c220b58fde445b479f471f8f9328271,
+        type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 752723479}
     - target: {fileID: 9126960187776735724, guid: 2c220b58fde445b479f471f8f9328271,
         type: 3}
       propertyPath: pickupSound
@@ -48681,7 +48692,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025233691}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d81dc780c41f8df4fa9b2bada15ec7de, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -61624,7 +61635,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892109728}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d81dc780c41f8df4fa9b2bada15ec7de, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -62796,7 +62807,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897342823}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d81dc780c41f8df4fa9b2bada15ec7de, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

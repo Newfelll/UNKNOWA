@@ -14,9 +14,8 @@ public class AwaranessSphereExpansion : MonoBehaviour
     
    public void ExpandSphere()
     {
-            
-        transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(transform.localScale.x+radiusExpansionRate,
-        transform.localScale.y+radiusExpansionRate, transform.localScale.z+radiusExpansionRate), timeToExpand);
+
+        transform.localScale = transform.localScale * radiusExpansionRate;
 
 
         radiusExpansionRate += multiplier;

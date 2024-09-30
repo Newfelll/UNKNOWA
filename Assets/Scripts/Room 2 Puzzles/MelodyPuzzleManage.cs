@@ -72,29 +72,10 @@ public class MelodyPuzzleManage : MonoBehaviour
         }
 
 
-        //if (selectedObject == null)
-        //{
-        //    selectedObject = selected;
-        //    Debug.Log(selectedObject.GetComponent<Renderer>().material.GetColor("_EmissionColor"));
-        //    Color color = selectedObject.GetComponent<Renderer>().material.GetColor("_EmissionColor");
-
-        //    selectedObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", (color) * emissionIntensityMultiplier);
-        //}
-        //else
-        //{
-        //    Color color = selectedObject.GetComponent<Renderer>().material.GetColor("_EmissionColor");
-        //    selectedObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", (color / emissionIntensityMultiplier));
-
-        //    selectedObject = selected;
-        //    Color color2 = selectedObject.GetComponent<Renderer>().material.GetColor("_EmissionColor");
-
-        //    selectedObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", (color2 * emissionIntensityMultiplier)); 
-
-
-
-        //}
     }
 
+
+   
 
     IEnumerator PressCoroutine()
     {
@@ -107,31 +88,22 @@ public class MelodyPuzzleManage : MonoBehaviour
 
 
 
-        //  Color colorDef = selectedRenderer.material.GetColor("_EmissionColor");
-
-        
-        Color colorDef= selectedRenderer.sharedMaterial.GetColor("_EmissionColor");
-        
-        Color colorAnim = colorDef * emissionIntensityMultiplier;
-
         Vector3 initialPos = selectedObject.transform.localPosition;
         Vector3 animatedPos = new Vector3(selectedObject.transform.localPosition.x, 0.64f, selectedObject.transform.localPosition.z);
 
+        Mpb.SetColor("_EmissionColor", selectedRenderer.sharedMaterial.GetColor("_Color") * 3);
+        selectedRenderer.SetPropertyBlock(Mpb);
+
+     
+        
 
         while (timer < animationTime)
         {
 
             selectedObject.transform.localPosition = Vector3.Lerp(selectedObject.transform.localPosition, animatedPos, timer / animationTime);
 
-            Mpb.SetColor("_EmissionColor", Color.Lerp(colorDef, colorAnim, timer / animationTime));
-            selectedRenderer.SetPropertyBlock(Mpb);
 
-          //  selectedRenderer.material.SetColor("_EmissionColor", Color.Lerp(colorDef, colorAnim, timer / animationTime));
-
-
-            // emissionIntensityDef = Mathf.Lerp(emissionIntensityDef, emissionIntensityMultiplier, timer / animationTime);
-
-            // selectedRenderer.material.SetColor("_EmissionColor", (color) * emissionIntensityDef);
+          
 
             timer += Time.deltaTime;
             yield return null;
@@ -144,21 +116,18 @@ public class MelodyPuzzleManage : MonoBehaviour
         {
             selectedObject.transform.localPosition = Vector3.Lerp(selectedObject.transform.localPosition, initialPos, timer / animationTime);
 
-            Mpb.SetColor("_EmissionColor", Color.Lerp(colorAnim, colorDef, timer / animationTime));
-            selectedRenderer.SetPropertyBlock(Mpb);
+          
 
-            //selectedRenderer.material.SetColor("_EmissionColor", Color.Lerp(colorAnim, colorDef, timer / animationTime));
-
-            //  emissionIntensityDef = Mathf.Lerp(emissionIntensityDef, 0, timer / animationTime);
-            // selectedRenderer.material.SetColor("_EmissionColor", (color) / emissionIntensityDef);
 
             timer += Time.deltaTime;
             yield return null;
         }
 
-        Mpb.SetColor("_EmissionColor", colorDef);
+        Mpb.SetColor("_EmissionColor", selectedRenderer.sharedMaterial.GetColor("_Color"));
         selectedRenderer.SetPropertyBlock(Mpb);
-        selectedRenderer.sharedMaterial.SetColor("_EmissionColor", colorDef);
+
+
+    
         emissionIntensityDef = 0;
         selectedObject.transform.localPosition = initialPos;
         timer = 0;
@@ -184,7 +153,7 @@ public class MelodyPuzzleManage : MonoBehaviour
             isMelodySolved = true;
             
             SFXSoundManager.Instance.PlayCorrectSFX();
-
+            
             Mpb.SetColor("_EmissionColor", Color.green * 3);
             CorrectnessIndýcator.GetComponent<MeshRenderer>().SetPropertyBlock(Mpb);
 
@@ -197,48 +166,6 @@ public class MelodyPuzzleManage : MonoBehaviour
 
 
 
-        /* if (isMelodySolved) return;
-        if (melody.Count == 5)
-        {
-            
-            melody.RemoveAt(0);
-
-            melody.Add(note);
-
-
-            if (correctMelody.SequenceEqual(melody))
-            {   isMelodySolved = true;
-                Debug.Log("Melody Correct");
-                SFXSoundManager.Instance.PlayCorrectSFX();
-
-                Mpb.SetColor("_EmissionColor", Color.green*3);
-                CorrectnessIndýcator.GetComponent<MeshRenderer>().SetPropertyBlock(Mpb);
-                //CorrectnessIndýcator.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
-                
-                onMelodySolved.TriggerEvent();
-                
-
-            }
-            else Debug.Log("Melody InCorrect");
-        }
-        else
-        {
-            melody.Add(note);
-
-            
-
-            if (correctMelody.SequenceEqual(melody))
-            {
-                isMelodySolved = true;
-                Debug.Log("Melody Correct");
-                SFXSoundManager.Instance.PlayCorrectSFX();
-                Mpb.SetColor("_EmissionColor", Color.green*3);
-                CorrectnessIndýcator.GetComponent<MeshRenderer>().SetPropertyBlock(Mpb);
-               // CorrectnessIndýcator.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
-                onMelodySolved.TriggerEvent();
-
-            }
-            else Debug.Log("Melody InCorrect");
-        }*/
+        
     }
 }

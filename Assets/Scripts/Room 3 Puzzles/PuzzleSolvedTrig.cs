@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class PuzzleSolvedTrig : MonoBehaviour
 {
+    public List<GameObject> puzzlePieces;
     
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
+  
 
 
     private void OnTriggerEnter(Collider other)
@@ -22,7 +15,13 @@ public class PuzzleSolvedTrig : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
            
-            GetComponentInParent<WeightSenseManager>().puzzleActive = false;
+            GetComponentInParent<WeightSenseManager>().OpenDoor();
+
+            foreach(GameObject pieces in puzzlePieces)
+            {
+                pieces.transform.localScale = pieces.GetComponent<Visible>().puzzleSolvedScale;
+                pieces.GetComponent<Visible>().enabled = false;
+            }
         }
     }
 }

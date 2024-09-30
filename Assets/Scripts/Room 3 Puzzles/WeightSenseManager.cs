@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeightSenseManager : MonoBehaviour
-{
+{   
+    
+
     public GameObject growObject;
     public GameObject shrinkObject;
 
@@ -19,6 +21,23 @@ public class WeightSenseManager : MonoBehaviour
 
     bool shrink, grow;
     public bool puzzleActive;
+
+
+    Material mat;
+
+
+    MaterialPropertyBlock mpb;
+    public MaterialPropertyBlock Mpb
+    {
+        get
+        {
+            if (mpb == null)
+            {
+                mpb = new MaterialPropertyBlock();
+            }
+            return mpb;
+        }
+    }
     void Start()
     {   puzzleActive = true;
         doorInitialPosition = door.transform.localScale;
@@ -28,41 +47,53 @@ public class WeightSenseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (puzzleActive)
+        if (Visible.isPuzzleActive)
         {
-            CheckWeights();
+
+
+            if (puzzleActive)
+            {
+                CheckWeights();
+            }
         }
-        
     }
 
 
     void CheckWeights() 
-    {  Material mat;    
+    {     
         Debug.Log(growObject.transform.localScale.magnitude);
         Debug.Log(shrinkObject.transform.localScale.magnitude);
        if(growObject.transform.localScale.magnitude>growMagnitudeThreshold.x && growObject.transform.localScale.magnitude<growMagnitudeThreshold.y)
         {    
             grow = true;
+            Mpb.SetColor("_EmissionColor", Color.green*4);
+
            growLine.material.EnableKeyword("_EMISSION");
-           growIndicator.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+           growIndicator.GetComponent<Renderer>().SetPropertyBlock(Mpb);
        }
        else
         {   
+            Mpb.SetColor("_EmissionColor", Color.green);
             grow = false;
             growLine.material.DisableKeyword("_EMISSION");
-            growIndicator.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+            growIndicator.GetComponent<Renderer>().SetPropertyBlock(Mpb);
        }
 
        if(shrinkObject.transform.localScale.magnitude>shrinkMagnitudeThreshold.x&& shrinkObject.transform.localScale.magnitude<shrinkMagnitudeThreshold.y)
-        {       shrink = true;
+        {       
+                Mpb.SetColor("_EmissionColor", Color.green*4);
+                shrink = true;
                 shrinkLine.material.EnableKeyword("_EMISSION");
-                shrinkIndicator.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                shrinkIndicator.GetComponent<Renderer>().SetPropertyBlock(Mpb);
           }
           else
-        {       shrink = false;
+            
+        {
+                 Mpb.SetColor("_EmissionColor", Color.green);
+                shrink = false;
                 shrinkLine.material.DisableKeyword("_EMISSION");
-                shrinkIndicator.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
-          }
+                shrinkIndicator.GetComponent<Renderer>().SetPropertyBlock(Mpb);
+        }
     
           if(shrink && grow)
         {
@@ -80,11 +111,5 @@ public class WeightSenseManager : MonoBehaviour
         door.transform.localScale = doorDesiredPosition;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-           OpenDoor();
-        }
-    }
+  
 }

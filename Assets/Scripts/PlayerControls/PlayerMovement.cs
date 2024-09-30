@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip pickupSound;
     public AudioClip jumpPadSound;
     public AudioClip landingSound;
+    public Animator transition;
 
 
 
@@ -90,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
+    private Vector3 respawnPosition;
 
 
     RaycastHit slopeHit;
@@ -109,7 +110,9 @@ public class PlayerMovement : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {
+    {   
+        respawnPosition= Vector3.zero;
+
         scene = SceneManager.GetActiveScene();
 
        
@@ -134,8 +137,8 @@ public class PlayerMovement : MonoBehaviour
             {
 
 
-                SceneManager.LoadScene(scene.name);
 
+                StartCoroutine(Respawn());
 
             }
 
@@ -338,16 +341,15 @@ public class PlayerMovement : MonoBehaviour
 
 
     public void OnDeath()
-    {   
-        transform.localPosition = new Vector3(0, 0, 0);
-        rb.velocity = Vector3.zero;
+    {
+       StartCoroutine(Respawn());
          
         
         onRespawn.TriggerEvent();
     }
 
 
-
+  
 
     IEnumerator PlayFootsteps()
     {   
@@ -358,6 +360,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    IEnumerator Respawn()
+    {
 
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(0.5f);
+        transition.SetTrigger("End");
+        rb.velocity = Vector3.zero;
+        rb.position = transform.parent.position;
+        onRespawn.TriggerEvent();
+
+
+    }
 
 }

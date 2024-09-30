@@ -38,8 +38,12 @@ public class MazeBehaviour : MonoBehaviour
 
     IEnumerator Wait()
     {   
-        
+
         yield return new WaitForSeconds(delay);
+        
+        light.enabled = false;
+        yield return new WaitForSeconds(delay);
+        light.enabled = true;
     }
 
 
@@ -53,7 +57,7 @@ public class MazeBehaviour : MonoBehaviour
 
 
                 light.color = color;
-                yield return new WaitForSeconds(delay);
+                yield return Wait();
             }
             else break;
         }
