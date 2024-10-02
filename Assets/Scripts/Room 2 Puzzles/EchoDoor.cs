@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EchoDoor : MonoBehaviour
 {
     public GameObject ScriptObjects;
     private GameObject light;
+    public GameObject tutorialText;
 
      void Awake()
     {   
@@ -20,6 +22,7 @@ public class EchoDoor : MonoBehaviour
            light.SetActive(false);
             RenderSettings.ambientIntensity= 0;
             RenderSettings.reflectionIntensity = 0;
+            StartCoroutine(TutorialText());
         }
         
     }
@@ -34,5 +37,12 @@ public class EchoDoor : MonoBehaviour
            RenderSettings.reflectionIntensity = 1f;
 
         }
+    }
+
+    IEnumerator TutorialText()
+    {
+        tutorialText.SetActive(true);
+        yield return new WaitForSeconds(3);
+        tutorialText.SetActive(false);
     }
 }

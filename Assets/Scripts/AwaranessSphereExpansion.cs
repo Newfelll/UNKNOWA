@@ -8,6 +8,7 @@ public class AwaranessSphereExpansion : MonoBehaviour
     public float multiplier = 2f;
  
     public float timeToExpand = 1f;
+    public GameObject particleObject;
 
     
     
@@ -16,9 +17,10 @@ public class AwaranessSphereExpansion : MonoBehaviour
     {
 
         transform.localScale = transform.localScale * radiusExpansionRate;
-
+        particleObject.transform.localScale = particleObject.transform.localScale* radiusExpansionRate;
 
         radiusExpansionRate += multiplier;
+        
         
 
     }

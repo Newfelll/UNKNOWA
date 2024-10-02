@@ -43,26 +43,38 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab))
         {
             if (isGamePaused)
             {
-                isGamePaused = false;
-                OnGameResumed.Invoke();
-                
-                Time.timeScale = 1;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+               Resume();
 
             }
             else
             {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                isGamePaused = true;
-                OnGamePaused.Invoke();
-                Time.timeScale = 0;
+                Pause();
             }
         }
+    }
+
+
+    public void Pause()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        isGamePaused = true;
+        OnGamePaused.Invoke();
+        Time.timeScale = 0;
+    }
+
+
+   public void Resume()
+    {
+        isGamePaused = false;
+        OnGameResumed.Invoke();
+
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

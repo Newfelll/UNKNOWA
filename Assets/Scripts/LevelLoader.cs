@@ -7,6 +7,7 @@ public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 1.5f;
+    public GameObject endText;
     
 
     private void Start()
@@ -25,11 +26,25 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadLevelCoroutine(int LevelID)
     {
-        transition.SetTrigger("Start");
-        yield return new WaitForSeconds(transitionTime);
-        //FindAnyObjectByType<LevelMenu>().gameObject.SetActive(false);
-        SceneManager.LoadScene(LevelID);
-        transition.SetTrigger("End");
+        if (LevelID == 4)
+        {
+            transition.SetTrigger("Start");
+            yield return new WaitForSeconds(transitionTime);
+            endText.SetActive(true);
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene(0);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+        }
+        else
+        {
+            transition.SetTrigger("Start");
+            yield return new WaitForSeconds(transitionTime);
+
+            SceneManager.LoadScene(LevelID);
+            transition.SetTrigger("End");
+        }
     }
 
 

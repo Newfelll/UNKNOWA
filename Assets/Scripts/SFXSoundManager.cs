@@ -17,12 +17,13 @@ public class SFXSoundManager : MonoBehaviour
         }
     }
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
 
     public AudioClip correctSFX;
     public AudioClip buttonSFX;
     public AudioClip swithcNoise;
+    
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -49,4 +50,6 @@ public class SFXSoundManager : MonoBehaviour
     {
         audioSource.PlayOneShot(swithcNoise);
     }
+
+    
 }

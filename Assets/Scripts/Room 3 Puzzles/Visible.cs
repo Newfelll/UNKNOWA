@@ -65,7 +65,7 @@ public class Visible : MonoBehaviour
             CheckVisibility();
 
 
-            if (isObjectInView&& Vector3.Distance(player.transform.position,thisObj.position)<uiDistance)
+            if (isObjectInView && Vector3.Distance(player.transform.position, thisObj.position) < uiDistance)
             {
                 screenUiPoint = mainCamera.WorldToScreenPoint(thisObj.position);
 
@@ -81,11 +81,14 @@ public class Visible : MonoBehaviour
                     Shrink();
                 }
             }
-            else indicator.SetActive(false);
-
+            else
+            {
+                indicator.SetActive(false); 
+               
+            }
         }
     else
-        {
+        {   
             indicator.SetActive(false);
         }
     }
@@ -136,6 +139,7 @@ public class Visible : MonoBehaviour
                 break;
 
         }
+        
     }
 
     private void Shrink()
@@ -169,11 +173,10 @@ public class Visible : MonoBehaviour
                 break;
 
         }
-        
-        
-        
+
+
     }
 
 
-   
+
 }

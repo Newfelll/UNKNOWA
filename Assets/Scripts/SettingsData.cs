@@ -36,8 +36,8 @@ public class SettingsData : MonoBehaviour
             PlayerPrefs.SetFloat("FirstRun", 1);
             PlayerPrefs.SetFloat("SensitivityX", 120f);
             PlayerPrefs.SetFloat("SensitivityY", 120f);
-            PlayerPrefs.SetFloat("MusicVolume", 0.9f);
-            PlayerPrefs.SetFloat("SfxVolume", 0.9f);
+            PlayerPrefs.SetFloat("MusicVolume", 0.5f);
+            PlayerPrefs.SetFloat("SfxVolume", 0.5f);
             PlayerPrefs.SetFloat("MasterVolume", 0.5f);
         }
         PlayerPrefs.SetFloat("FirstRun", 1);
