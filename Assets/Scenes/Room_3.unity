@@ -881,7 +881,7 @@ MonoBehaviour:
   shrinkScaleMultiplier: 2
   isGrowing: 1
   maxScaleMultiplier: 5.5
-  uiDistance: 23
+  uiDistance: 20
   puzzleSolvedScale: {x: 0, y: 0, z: 0}
   magnitude: 1.4384788
 --- !u!1 &53389252
@@ -1879,7 +1879,6 @@ Transform:
   - {fileID: 500095885}
   - {fileID: 810680629}
   - {fileID: 589870128}
-  - {fileID: 130388140}
   - {fileID: 1890706414}
   m_Father: {fileID: 916799580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2467,105 +2466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collapsePoints: []
---- !u!1001 &130388139
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 124977156}
-    m_Modifications:
-    - target: {fileID: 207441074915871401, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_Name
-      value: DoorKey (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 207441074915871401, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 207441074915871401, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.63462245
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.63462245
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.63462245
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.31731123
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.47596693
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d97bbed03a213034480d424f40880bbc, type: 3}
---- !u!4 &130388140 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8951473634185132475, guid: d97bbed03a213034480d424f40880bbc,
-    type: 3}
-  m_PrefabInstance: {fileID: 130388139}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &131226688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,7 +3960,7 @@ MonoBehaviour:
   shrinkScaleMultiplier: 2
   isGrowing: 1
   maxScaleMultiplier: 5.5
-  uiDistance: 23
+  uiDistance: 20
   puzzleSolvedScale: {x: 1, y: 1, z: 1}
   magnitude: 0
 --- !u!1 &184801406
@@ -4465,7 +4365,7 @@ MonoBehaviour:
   shrinkScaleMultiplier: 2
   isGrowing: 1
   maxScaleMultiplier: 1.5
-  uiDistance: 23
+  uiDistance: 20
   puzzleSolvedScale: {x: 3.4307, y: 3.4307, z: 15}
   magnitude: 0
 --- !u!65 &212456569
@@ -4983,7 +4883,7 @@ MonoBehaviour:
   shrinkScaleMultiplier: 10
   isGrowing: 0
   maxScaleMultiplier: 2
-  uiDistance: 23
+  uiDistance: 20
   puzzleSolvedScale: {x: 0, y: 0, z: 0}
   magnitude: 0
 --- !u!1 &250872769
@@ -5527,7 +5427,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_56da6784-cb06-4bd1-b8c6-9c783ebdc2ac
+    name: UM_OperatedMesh_88743c28-0483-44fa-baf9-c6fb102ca14e
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 0111c3304a61ca94083048606467c9cb, type: 2}
     buidVersion:
@@ -5539,7 +5439,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 56da6784-cb06-4bd1-b8c6-9c783ebdc2ac
+  sourceMeshRendererGUID: 88743c28-0483-44fa-baf9-c6fb102ca14e
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -5833,7 +5733,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_0ca225b1-62ee-439d-9636-6247c4f3008d
+    name: UM_OperatedMesh_5ea33dc5-1c7a-4407-852e-2508305f694e
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: e2529cfc2c8da004eb2396736ffc9366, type: 2}
     buidVersion:
@@ -5845,7 +5745,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 0ca225b1-62ee-439d-9636-6247c4f3008d
+  sourceMeshRendererGUID: 5ea33dc5-1c7a-4407-852e-2508305f694e
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -6347,7 +6247,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_93c55138-582e-4b35-b342-9f1ac425a0ab
+    name: UM_OperatedMesh_f91c6517-b054-43f0-9b20-33b78bea4fa4
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 8a8e7b40a634bef4b84a2320dcc03fea, type: 2}
     buidVersion:
@@ -6359,7 +6259,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 93c55138-582e-4b35-b342-9f1ac425a0ab
+  sourceMeshRendererGUID: f91c6517-b054-43f0-9b20-33b78bea4fa4
   guid: 685aef73-f106-4fe5-b0bd-fb16474d6f80
   localOptions:
     RecalculateTangents: 0
@@ -7632,7 +7532,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_d4169b60-d0ae-4f36-889c-b894a0f92393
+    name: UM_OperatedMesh_33013e0c-f841-4e84-9ace-309251d20d31
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 9dab2a8202edfbf4fae167c0ff63c947, type: 2}
     buidVersion:
@@ -7644,7 +7544,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: d4169b60-d0ae-4f36-889c-b894a0f92393
+  sourceMeshRendererGUID: 33013e0c-f841-4e84-9ace-309251d20d31
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -9279,7 +9179,7 @@ MonoBehaviour:
   materialsPath: []
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_a058265c-1c70-4a8e-8451-b65cd4e88364
+    name: UM_OperatedMesh_b817b9e3-72d3-4ee3-b454-612741ec3a0a
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 628e6cd687bc6a149868494485a17855, type: 2}
     buidVersion:
@@ -9291,7 +9191,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: a058265c-1c70-4a8e-8451-b65cd4e88364
+  sourceMeshRendererGUID: b817b9e3-72d3-4ee3-b454-612741ec3a0a
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -9803,7 +9703,7 @@ MonoBehaviour:
   shrinkScaleMultiplier: 20
   isGrowing: 0
   maxScaleMultiplier: 1
-  uiDistance: 23
+  uiDistance: 20
   puzzleSolvedScale: {x: 11.590807, y: 0.7597222, z: 1.8747061}
   magnitude: 0
 --- !u!1 &532764322
@@ -10989,7 +10889,7 @@ MonoBehaviour:
   materialsPath: []
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_fb344847-22dc-414b-b758-d4e9ed49e52d
+    name: UM_OperatedMesh_68b173f0-6f76-4bbb-bd01-05635cfa2654
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 9e45d76cb51c25043a8a830fd82994a3, type: 2}
     buidVersion:
@@ -11001,7 +10901,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: fb344847-22dc-414b-b758-d4e9ed49e52d
+  sourceMeshRendererGUID: 68b173f0-6f76-4bbb-bd01-05635cfa2654
   guid: ab11f115-fd76-4b1f-a3a1-63e1515fe2d7
   localOptions:
     RecalculateTangents: 0
@@ -11161,7 +11061,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_c68635a4-766d-43bf-b1c9-40432414037a
+    name: UM_OperatedMesh_75ae84fa-c8ab-4f41-bee5-bcb1e1c6f0e4
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: dd2247376cbdd534493c32756ff35569, type: 2}
     buidVersion:
@@ -11173,7 +11073,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: c68635a4-766d-43bf-b1c9-40432414037a
+  sourceMeshRendererGUID: 75ae84fa-c8ab-4f41-bee5-bcb1e1c6f0e4
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -14546,7 +14446,7 @@ MonoBehaviour:
   materialsPath: []
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_51cf4e91-c0dd-426b-a4e2-c0f439624523
+    name: UM_OperatedMesh_5d1baffb-ccff-470a-97a3-6893b0994b9d
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 7111308059cd33a4e9148e6fd1f6f49d, type: 2}
     buidVersion:
@@ -14558,7 +14458,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 51cf4e91-c0dd-426b-a4e2-c0f439624523
+  sourceMeshRendererGUID: 5d1baffb-ccff-470a-97a3-6893b0994b9d
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -14724,7 +14624,7 @@ MonoBehaviour:
   materialsPath: []
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_966a68a6-a3b9-4340-acac-b0cea169b848
+    name: UM_OperatedMesh_ecaa126d-514f-4d0e-8cbd-9e707e653084
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: f87b663abe423cf4c80f051003b9eb10, type: 2}
     buidVersion:
@@ -14736,7 +14636,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 966a68a6-a3b9-4340-acac-b0cea169b848
+  sourceMeshRendererGUID: ecaa126d-514f-4d0e-8cbd-9e707e653084
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -18653,7 +18553,7 @@ MonoBehaviour:
   materialsPath: []
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_62f57c2b-c4e9-4a9a-91f1-bd2b7915492d
+    name: UM_OperatedMesh_245cf3f8-af56-40e8-9e29-1e10863a9cb7
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 72b204f174707f243b215501986b1e3d, type: 2}
     buidVersion:
@@ -18665,7 +18565,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 62f57c2b-c4e9-4a9a-91f1-bd2b7915492d
+  sourceMeshRendererGUID: 245cf3f8-af56-40e8-9e29-1e10863a9cb7
   guid: c443b974-980f-407c-9b30-e7feb695cc92
   localOptions:
     RecalculateTangents: 0
@@ -19183,7 +19083,7 @@ MonoBehaviour:
   materialsPath: []
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_41fc0386-1ad2-4f55-8cfb-bc98f48139b6
+    name: UM_OperatedMesh_15ec1c67-be99-41ed-8421-527282ffbb10
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: ae113f39d8b60474da448c5bebb672b6, type: 2}
     buidVersion:
@@ -19195,7 +19095,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 41fc0386-1ad2-4f55-8cfb-bc98f48139b6
+  sourceMeshRendererGUID: 15ec1c67-be99-41ed-8421-527282ffbb10
   guid: c443b974-980f-407c-9b30-e7feb695cc92
   localOptions:
     RecalculateTangents: 0
@@ -21907,7 +21807,7 @@ MonoBehaviour:
   shrinkScaleMultiplier: 20
   isGrowing: 0
   maxScaleMultiplier: 1
-  uiDistance: 23
+  uiDistance: 20
   puzzleSolvedScale: {x: 1, y: 1, z: 1}
   magnitude: 0
 --- !u!1 &1141529290
@@ -24058,7 +23958,7 @@ MonoBehaviour:
   - Assets/Object Assets/Materials/New Material.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_6bacff99-a0fe-40f0-a462-7d3f0aac87b9
+    name: UM_OperatedMesh_612ade55-4d96-4c4b-8c9c-38fd2fdcbec0
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: a887bfbed48772f498d69c2575070313, type: 2}
     buidVersion:
@@ -24070,7 +23970,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 6bacff99-a0fe-40f0-a462-7d3f0aac87b9
+  sourceMeshRendererGUID: 612ade55-4d96-4c4b-8c9c-38fd2fdcbec0
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -24601,7 +24501,7 @@ MonoBehaviour:
   materialsPath: []
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_2321a641-1d99-4a3d-944e-1e5d5aef75ce
+    name: UM_OperatedMesh_a6669a7b-c18f-4273-93ec-35d2880a5f0e
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 239e2befc8970e24eb94b7698aa91a79, type: 2}
     buidVersion:
@@ -24613,7 +24513,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 2321a641-1d99-4a3d-944e-1e5d5aef75ce
+  sourceMeshRendererGUID: a6669a7b-c18f-4273-93ec-35d2880a5f0e
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -24832,7 +24732,7 @@ MonoBehaviour:
   materialsPath: []
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_e5ec6884-0f36-458e-95e2-f3f7b1587d5c
+    name: UM_OperatedMesh_0c3b75e4-a27f-464f-b976-eadeb6b512b9
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: ba9937745510146428ebb706a56d4905, type: 2}
     buidVersion:
@@ -24844,7 +24744,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: e5ec6884-0f36-458e-95e2-f3f7b1587d5c
+  sourceMeshRendererGUID: 0c3b75e4-a27f-464f-b976-eadeb6b512b9
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -25133,7 +25033,7 @@ MonoBehaviour:
   materialsPath: []
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_60134874-ebfd-472d-9b7a-11d9e6d033ab
+    name: UM_OperatedMesh_1c296959-9bce-4fb7-97ed-217f828c99ee
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 39347deb5991bc4458746e4dff567089, type: 2}
     buidVersion:
@@ -25145,7 +25045,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 60134874-ebfd-472d-9b7a-11d9e6d033ab
+  sourceMeshRendererGUID: 1c296959-9bce-4fb7-97ed-217f828c99ee
   guid: c443b974-980f-407c-9b30-e7feb695cc92
   localOptions:
     RecalculateTangents: 0
@@ -25327,7 +25227,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_c6fea2cc-821c-473b-8a28-6d3b66e05372
+    name: UM_OperatedMesh_592b6cff-dbf4-4249-8e11-2a70f6538544
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 5c1403abbafa3c6438b7c96fe0d11988, type: 2}
     buidVersion:
@@ -25339,7 +25239,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: c6fea2cc-821c-473b-8a28-6d3b66e05372
+  sourceMeshRendererGUID: 592b6cff-dbf4-4249-8e11-2a70f6538544
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -25613,7 +25513,7 @@ MonoBehaviour:
   - Assets/Object Assets/Materials/New Material.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_b1a339a7-1641-4a1f-9c8a-4f56749cbba5
+    name: UM_OperatedMesh_91e1c19e-fdc2-4f1d-a936-ae12c5e2ff7e
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: e9f713813f2c5684f97a0c2bb041cb57, type: 2}
     buidVersion:
@@ -25625,7 +25525,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: b1a339a7-1641-4a1f-9c8a-4f56749cbba5
+  sourceMeshRendererGUID: 91e1c19e-fdc2-4f1d-a936-ae12c5e2ff7e
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -26813,7 +26713,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_384d6ecd-6674-4f7a-be1e-3fd1027c34dd
+    name: UM_OperatedMesh_8a1e67fb-c9d2-463d-8f30-4a2d6aa5503f
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 6439fac7aa817e84ca60d4e524082de7, type: 2}
     buidVersion:
@@ -26825,7 +26725,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 384d6ecd-6674-4f7a-be1e-3fd1027c34dd
+  sourceMeshRendererGUID: 8a1e67fb-c9d2-463d-8f30-4a2d6aa5503f
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -30867,7 +30767,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_8b827723-77a6-44c5-b4df-5144aace778f
+    name: UM_OperatedMesh_cd20ca53-b088-42f8-9d8c-a1395d78ef70
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 13b77a200ed696e41b467057237d352f, type: 2}
     buidVersion:
@@ -30879,7 +30779,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 8b827723-77a6-44c5-b4df-5144aace778f
+  sourceMeshRendererGUID: cd20ca53-b088-42f8-9d8c-a1395d78ef70
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -31613,7 +31513,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_2143ddb4-daa6-490c-ae21-c952aecf510f
+    name: UM_OperatedMesh_a58cc31d-7c77-4ef3-82c9-543742ea2002
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: f68cb28b76d053e4dbc988c7ddb3381b, type: 2}
     buidVersion:
@@ -31625,7 +31525,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 2143ddb4-daa6-490c-ae21-c952aecf510f
+  sourceMeshRendererGUID: a58cc31d-7c77-4ef3-82c9-543742ea2002
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -32999,7 +32899,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_c191633b-56ff-402a-9f8e-b1008008c9d9
+    name: UM_OperatedMesh_3de69564-46c4-4e8c-83c6-ed5c9a40862b
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 5482ee2d9ed588a428ec13b26a601b4f, type: 2}
     buidVersion:
@@ -33011,7 +32911,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: c191633b-56ff-402a-9f8e-b1008008c9d9
+  sourceMeshRendererGUID: 3de69564-46c4-4e8c-83c6-ed5c9a40862b
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -36061,7 +35961,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_f4561651-9184-4d92-b5f0-a7c7bd030500
+    name: UM_OperatedMesh_a498f5c6-c565-4d2b-bcc3-9d068ca60c31
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: 4553ad222979a2d448392d78e1e14c0b, type: 2}
     buidVersion:
@@ -36073,7 +35973,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: f4561651-9184-4d92-b5f0-a7c7bd030500
+  sourceMeshRendererGUID: a498f5c6-c565-4d2b-bcc3-9d068ca60c31
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
@@ -38259,7 +38159,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_7f8c032d-b4ef-447b-9fcb-60d0522d4be9
+    name: UM_OperatedMesh_8a5f4d9b-df1b-4077-91b3-b5ed3139fe0c
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: a4592310d91e2104495c14e8ed083873, type: 2}
     buidVersion:
@@ -38271,7 +38171,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: 7f8c032d-b4ef-447b-9fcb-60d0522d4be9
+  sourceMeshRendererGUID: 8a5f4d9b-df1b-4077-91b3-b5ed3139fe0c
   guid: 685aef73-f106-4fe5-b0bd-fb16474d6f80
   localOptions:
     RecalculateTangents: 0
@@ -39286,7 +39186,7 @@ MonoBehaviour:
   - Packages/com.tripolygon.umodeler-x/Editor/Resources/Materials/UModelerX_Gray_URP.mat
   currentMaterialIndex: 0
   renderableMesh:
-    name: UM_OperatedMesh_ec4482da-19aa-473e-81df-019bbdf2b76f
+    name: UM_OperatedMesh_c926694d-efa0-4020-9f81-1f8a0d021468
     skinnedMesh: 0
     sharedMesh: {fileID: 4300000, guid: ee79f96a1a98bc34e8171b2f7db6642e, type: 2}
     buidVersion:
@@ -39298,7 +39198,7 @@ MonoBehaviour:
       IndexVersion: 0
       OptimizedTopology: 0
   sourceMesh: {fileID: 0}
-  sourceMeshRendererGUID: ec4482da-19aa-473e-81df-019bbdf2b76f
+  sourceMeshRendererGUID: c926694d-efa0-4020-9f81-1f8a0d021468
   guid: 518651c5-76f0-46f9-91db-e7b8a9cc7827
   localOptions:
     RecalculateTangents: 0
